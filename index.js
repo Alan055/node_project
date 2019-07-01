@@ -1,5 +1,5 @@
 const Koa = require('koa')
-const mysql = require('mysql')
+// const mysql = require('mysql')
 const router = require('koa-router')() // 这里直接执行
 const app = new Koa()
 
@@ -7,17 +7,12 @@ router.get('/api/login', require('./api/login').index) // 登录
 router.get('/api/register', require('./api/register').index) // 注册
 
 app.use(router.routes());
+const conn = require('./server/index')
 
-// 链接数据库
-var connection = mysql.createConnection({
-	host: '172.17.10.155',
-	user: 'root',
-	password: 'new-password',
-	port: '3306',
-	// database: 'alanSQL',
-})
-connection.connect();
 app.listen(3000);
+
+const reptile = require('./test/reptile')
+reptile.index()
 
 
 
