@@ -1,6 +1,4 @@
 exports.index = async function (ctx,next ) {
-	console.log(ctx)
+	console.log('register')
 	ctx.response.body = "注册成功"
-
-	next()
 }
