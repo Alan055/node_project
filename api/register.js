@@ -14,7 +14,6 @@ exports.index = async function (ctx,next ) {
 
 	const sql = `insert into userlist values(null, "${username}", "${password}","${moment().format('YYYY-MM-DD')}")`
 	await fn(sql).then((res)=>{
-		console.log(res)
 		ctx.response.body = res.affectedRows == 1 ? '注册成功' : '注册失败'
 		console.log(ctx.response.body)
 	}).catch((err)=>{
